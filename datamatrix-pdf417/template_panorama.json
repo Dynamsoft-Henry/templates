@@ -1,0 +1,9 @@
+{
+  "BatchScanTemplates": [
+    {
+      "Name": "BST_Default",
+      "BarcodeFormatIds":["BF_DATAMATRIX","BF_PDF417"],
+      "CaptureVisionTemplateName": "CVT_Default"
+    }
+  ]
+}

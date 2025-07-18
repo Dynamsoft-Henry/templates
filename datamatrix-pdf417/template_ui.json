@@ -1,0 +1,18 @@
+{
+    "CameraAndUITemplates": [
+      {
+        "Name": "CUT_Default",
+        "CameraType": "CMT_AR_PLANE_PROJECTION",
+        "ScanRegion":{
+            "ScanRegionEnable": 0,
+            "ScanRegionLeft": 0,
+            "ScanRegionRight": 100,
+            "ScanRegionTop": 0,
+            "ScanRegionBottom": 100
+        },
+        "ScanDirection": "SD_LEFT_TO_RIGHT",
+        "Resolution": "RESOLUTION_4K",
+        "PanoramaTemplateName": "BST_Default"
+      }
+    ]
+  }
