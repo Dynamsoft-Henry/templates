@@ -1,0 +1,88 @@
+{
+	"CaptureVisionTemplates": [
+		{
+			"Name": "ReadBarcodes_ReadRateFirst",
+			"ImageROIProcessingNameArray": [
+				"roi_read_barcodes_read_rate"
+			],
+			"Timeout": 5000
+		}
+	],
+	"TargetROIDefOptions": [
+		{
+			"Name": "roi_read_barcodes_read_rate",
+			"TaskSettingNameArray": [
+				"task_read_barcodes_read_rate"
+			]
+		}
+	],
+	"BarcodeReaderTaskSettingOptions": [
+		{
+			"Name": "task_read_barcodes_read_rate",
+			"ExpectedBarcodesCount" : 999,
+			"BarcodeFormatIds" : [ "BF_DEFAULT" ],
+			"LocalizationModes": [
+				{
+					"Mode" : "LM_CONNECTED_BLOCKS"
+				 },
+				 {
+					"Mode" : "LM_LINES"
+				 },
+				 {
+					"Mode" : "LM_STATISTICS"
+				 }
+			],
+			"DeblurModes":[
+				{
+					"Mode": "DM_BASED_ON_LOC_BIN"
+				},
+				{
+					"Mode": "DM_THRESHOLD_BINARIZATION" 
+				},
+				{
+					"Mode": "DM_DIRECT_BINARIZATION" 
+				},
+				{
+					"Mode": "DM_SMOOTHING" 
+				},
+				{
+					"Mode": "DM_DEEP_ANALYSIS" 
+				}
+			],
+			"SectionImageParameterArray": [
+				{
+					"Section": "ST_REGION_PREDETECTION",
+					"ImageParameterName": "ip_read_barcodes_read_rate"
+				},
+				{
+					"Section": "ST_BARCODE_LOCALIZATION",
+					"ImageParameterName": "ip_read_barcodes_read_rate"
+				},
+				{
+					"Section": "ST_BARCODE_DECODING",
+					"ImageParameterName": "ip_read_barcodes_read_rate"
+				}
+			]
+		}
+	],
+	"ImageParameterOptions": [
+		{
+			"Name": "ip_read_barcodes_read_rate",
+			"TextDetectionMode": {
+				"Mode": "TTDM_LINE",
+				"Direction": "UNKNOWN",
+				"Sensitivity": 3
+			},
+			"IfEraseTextZone": 1,
+			"GrayscaleTransformationModes" : [ 
+				{
+					"Mode": "GTM_ORIGINAL"
+				},
+				{
+					"Mode": "GTM_INVERTED" 
+				}
+			],
+			"ScaleDownThreshold" : 100000
+		}
+	]
+}

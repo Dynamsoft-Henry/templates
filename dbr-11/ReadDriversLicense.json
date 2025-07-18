@@ -1,0 +1,84 @@
+{
+	"CaptureVisionTemplates": [
+		{
+			"Name" : "ReadDriversLicense",
+			"ImageROIProcessingNameArray" : 
+			[
+				"roi-pdf-417"
+			],
+			"SemanticProcessingNameArray": [ "sp-pdf-417" ],
+			"Timeout" : 10000,
+			"MaxParallelTasks":0
+		}
+	],
+	"TargetROIDefOptions": [
+		{
+			"Name" : "roi-pdf-417",
+			"TaskSettingNameArray" : 
+			[
+				"task-pdf-417"
+			]
+		}
+	],
+	"BarcodeReaderTaskSettingOptions": [
+		{
+			"Name" : "task-pdf-417",
+			"BarcodeFormatIds" : 
+			[
+				"BF_PDF417"
+			],
+			"ExpectedBarcodesCount" : 1,
+			"MaxThreadsInOneTask": 1,
+			"SectionArray" : 
+			[
+				{
+					"Section" : "ST_REGION_PREDETECTION"
+				},
+				{
+					"Section" : "ST_BARCODE_LOCALIZATION",
+					"StageArray": [
+						{
+							"Stage": "SST_LOCALIZE_CANDIDATE_BARCODES",
+							"LocalizationModes" : [
+								{
+									"Mode" : "LM_CONNECTED_BLOCKS"
+								},
+								{
+									"Mode" : "LM_LINES"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Section" : "ST_BARCODE_DECODING",
+					"StageArray": [
+						{
+							"Stage": "SST_DECODE_BARCODES",
+							"DeblurModes": null
+						}
+					]
+				}
+			]
+		}
+	],
+	"SemanticProcessingOptions": [
+		{
+			"Name": "sp-pdf-417",
+			"ReferenceObjectFilter": {
+				"ReferenceTargetROIDefNameArray": [
+						"roi-pdf-417"
+				]
+			},
+			"TaskSettingNameArray": [
+				"parse-pdf-417"
+			]
+		}
+	],
+	"CodeParserTaskSettingOptions": [
+		{
+			"Name": "parse-pdf-417",
+			"CodeSpecifications": ["AAMVA_DL_ID","AAMVA_DL_ID_WITH_MAG_STRIPE","SOUTH_AFRICA_DL"]
+		}
+	]
+}
